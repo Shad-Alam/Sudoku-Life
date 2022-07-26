@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="843.0" style="-fx-background-color: darkred;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="843.0" style="-fx-background-color: #566573;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
          </VBox.margin>
          <children>
-            <GridPane style="-fx-background-color: red;" VBox.vgrow="ALWAYS">
+            <GridPane style="-fx-background-color: #34495E;" VBox.vgrow="ALWAYS">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -928,7 +928,7 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" onAction="#newGame" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: black; -fx-text-fill: white;" text="New Game">
+                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" onAction="#newGame" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #34495E; -fx-text-fill: white;" text="New Game">
                      <font>
                         <Font size="23.0" />
                      </font>
