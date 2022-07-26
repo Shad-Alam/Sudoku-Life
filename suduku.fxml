@@ -928,7 +928,7 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: black; -fx-text-fill: white;" text="New Game">
+                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" onAction="#newGame" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: black; -fx-text-fill: white;" text="New Game">
                      <font>
                         <Font size="23.0" />
                      </font>
