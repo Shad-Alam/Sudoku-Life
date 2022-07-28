@@ -201,8 +201,11 @@ public class SudukuController implements Initializable {
 //        }
     }
 
-    public void newGame(ActionEvent actionEvent) {
+    private void setValue(){
 
+    }
+
+    public void newGame(ActionEvent actionEvent) {
         for(int a=1; a<9; a++){
             for(int b=0; b<9; b++){
                 System.out.println(i[a][b]);
