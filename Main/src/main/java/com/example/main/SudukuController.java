@@ -104,7 +104,7 @@ public class SudukuController implements Initializable {
     private String emptyChecker(String s){
         return s.length()==0 ? "0" : s;
     }
-    private void source(){
+    private void getUserInput(){
         i[0][0] = Integer.parseInt(emptyChecker(tf_0_0.getText()));
         i[0][1] = Integer.parseInt(emptyChecker(tf_0_1.getText()));
         i[0][2] = Integer.parseInt(emptyChecker(tf_0_2.getText()));
@@ -202,7 +202,6 @@ public class SudukuController implements Initializable {
     }
 
     public void newGame(ActionEvent actionEvent) {
-        source();
 
         for(int a=1; a<9; a++){
             for(int b=0; b<9; b++){
