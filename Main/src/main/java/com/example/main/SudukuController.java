@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class SudukuController implements Initializable {
@@ -283,6 +284,16 @@ public class SudukuController implements Initializable {
         tf_8_6.setText(String.valueOf(i[8][6]));
         tf_8_7.setText(String.valueOf(i[8][7]));
         tf_8_8.setText(String.valueOf(i[8][8]));
+
+        Random random = new Random();
+
+        for(int a=0; a<10; a++) {
+            int n = random.nextInt(12);
+            System.out.println(n);
+        }
+
+
+
         /**
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
