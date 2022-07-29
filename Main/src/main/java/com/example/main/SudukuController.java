@@ -202,7 +202,24 @@ public class SudukuController implements Initializable {
 //        }
     }
 
+    private void sw(int a, int b){
+        int sp = a;
+        a = b;
+        b = sp;
+    }
     private void setValue(){
+        Random random = new Random();
+        for(int a=0; a<9; a++){
+            int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
+            for(int b=0; b<9; b++){
+                int nn = random.nextInt(p);
+                i[a][b] = j[nn];
+                int sp = j[nn];
+                j[nn] = j[p-1];
+                j[p-1] = sp;
+                p--;
+            }
+        }
         tf_0_0.setText(String.valueOf(i[0][0]));
         tf_0_1.setText(String.valueOf(i[0][1]));
         tf_0_2.setText(String.valueOf(i[0][2]));
@@ -284,15 +301,6 @@ public class SudukuController implements Initializable {
         tf_8_6.setText(String.valueOf(i[8][6]));
         tf_8_7.setText(String.valueOf(i[8][7]));
         tf_8_8.setText(String.valueOf(i[8][8]));
-
-        Random random = new Random();
-
-        for(int a=0; a<10; a++) {
-            int n = random.nextInt(12);
-            System.out.println(n);
-        }
-
-
 
         /**
         for(int a=0; a<9; a++){
