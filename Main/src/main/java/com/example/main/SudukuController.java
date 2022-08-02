@@ -92,12 +92,21 @@ public class SudukuController implements Initializable {
     public TextField tf_0_3;
 
     int[][] i = new int[10][10];
+    boolean[][] visit = new boolean[10][10];
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
                 i[a][b] = 0;
+            }
+        }
+    }
+
+    void reset(){
+        for(int a=0; a<10; a++){
+            for(int b=0; b<10; b++){
+                visit[a][b] = false;
             }
         }
     }
@@ -220,7 +229,7 @@ public class SudukuController implements Initializable {
                 p--;
                 System.out.print("i[" + a + "][" + b + "]   ");
             }
-            System.out.println("\n\n");
+            System.out.println("");
         }
         // -----------------------------
         // ----------  one -------------
@@ -237,11 +246,15 @@ public class SudukuController implements Initializable {
                 i[2][3], i[2][4], i[2][5]
         };
 
+
         int[] part3 = {
                 i[0][6], i[0][7], i[0][8],
                 i[1][6], i[1][7], i[1][8],
                 i[2][6], i[2][7], i[2][8]
         };
+
+
+
 
         // -----------------------------
         // ----------  two -------------
