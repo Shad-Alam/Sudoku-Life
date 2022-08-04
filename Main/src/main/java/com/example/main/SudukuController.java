@@ -218,6 +218,24 @@ public class SudukuController implements Initializable {
     }
     private void setValue(){
         Random random = new Random();
+        int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
+        for(int a=0; a<3; a++){
+            for(int b=0; b<3; b++){
+                int nn = random.nextInt(p);
+                i[a][b] = j[nn];
+                int sp = j[nn];
+                j[nn] = j[p-1];
+                j[p-1] = sp;
+                p--;
+                System.out.print("i[" + a + "][" + b + "]   ");
+            }
+            System.out.println("");
+        }
+
+
+
+        /*
+
         for(int a=0; a<9; a++){
             int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
             for(int b=0; b<9; b++){
@@ -231,6 +249,26 @@ public class SudukuController implements Initializable {
             }
             System.out.println("");
         }
+         */
+        /**
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                System.out.print(i[a][b] + " ");
+            }
+            System.out.println("");
+        }
+
+        System.out.println("\n\n");
+
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                System.out.print(i[b][a]+" ");
+            }
+            System.out.println("");
+        }
+        System.out.println("\n\n");
+         */
+
         // -----------------------------
         // ----------  one -------------
         // -----------------------------
@@ -239,6 +277,28 @@ public class SudukuController implements Initializable {
                 i[1][0], i[1][1], i[1][2],
                 i[2][0], i[2][1], i[2][2]
         };
+
+
+//        boolean[] visit1 = new boolean[10];
+//        for(int a=0; a<9; a++){
+//            boolean[] visiting = new boolean[10];
+//            for(int b=0; b<9; b++){
+//               if(!visiting[i[b][a]]){
+//                   visiting[i[b][a]] = true;
+//               }else{
+//                   i[b][a] = 0;
+//               }
+//            }
+//        }
+
+        // 1. need from part1
+        // 2.
+
+//        for(int a=0; a<3; a++){
+//            for(int b=0; b<3; b++){
+//
+//            }
+//        }
 
         int[] part2 = {
                 i[0][3], i[0][4], i[0][5],
@@ -252,8 +312,6 @@ public class SudukuController implements Initializable {
                 i[1][6], i[1][7], i[1][8],
                 i[2][6], i[2][7], i[2][8]
         };
-
-
 
 
         // -----------------------------
