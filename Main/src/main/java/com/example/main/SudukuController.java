@@ -218,24 +218,8 @@ public class SudukuController implements Initializable {
     }
     private void setValue(){
         Random random = new Random();
-        int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
-        for(int a=0; a<3; a++){
-            for(int b=0; b<3; b++){
-                int nn = random.nextInt(p);
-                i[a][b] = j[nn];
-                int sp = j[nn];
-                j[nn] = j[p-1];
-                j[p-1] = sp;
-                p--;
-                System.out.print("i[" + a + "][" + b + "]   ");
-            }
-            System.out.println("");
-        }
 
-
-
-        /*
-
+        int n = 9;
         for(int a=0; a<9; a++){
             int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
             for(int b=0; b<9; b++){
@@ -249,7 +233,94 @@ public class SudukuController implements Initializable {
             }
             System.out.println("");
         }
-         */
+
+        // part 1
+        boolean[] visit1 = new boolean[10];
+        for(int a=0; a<=2; a++){
+            for(int b=0; b<=2; b++){
+                visit1[i[a][b]] = false;
+            }
+        }
+        // remove value in circle is found
+        int[] j1 = new int[10];
+        int p1 = 0;
+        for(int a=0; a<=2; a++){
+            for(int b=0; b<=2; b++){
+                if(visit1[i[a][b]]){
+                    int ssd = i[a][b];
+                    i[a][b] = 0;
+
+                    j1[p1] = ssd;
+                    p1++;
+
+                }visit1[i[a][b]] = true;
+            }
+        }
+
+        // add all necessary value
+        p1 = 0;
+        for(int c=1; c<=n; c++){
+            if(!visit1[c]){
+                for(int a=0; a<=2; a++){
+                    boolean port1 = false;
+                    for(int b=0; b<=2; b++){
+                        if(i[a][b]==0){
+                            int ssd = j1[p1];
+                            for(int d=b+1; d<9; d++){
+                                if(i[a][d]==c){
+                                    i[a][b] = c;
+                                    i[a][d] = ssd;
+                                    p1++;
+                                    visit1[c] = true;
+                                    port1 = true;
+                                    break;
+                                }
+                            }
+
+                            if(port1){
+                                break;
+                            }
+                        }
+                    }
+
+                    if(port1){
+                        break;
+                    }
+                }
+            }
+        }
+
+        // swap value if match
+        for(int a=0; a<=2; a++){
+            boolean[] visiting = new boolean[10];
+            for(int b=1; b<=9; b++){
+                visiting[b] = false;
+            }
+            for(int b=0; b<=2; b++){
+                visiting[i[b][a]] = true;
+            }
+            for(int b=0; b<=2; b++){
+                int ssd = i[b][a];
+                visit[a][b] = true;
+                for(int c=3; c<9; c++){
+                    if(i[c][a]==ssd){
+                        i[c][a] = 0;
+                        for(int d=0; d<9; d++){
+                            if(visit[c][d]){
+                                continue;
+                            }
+                            if(!visiting[i[c][d]] && d!=a){
+                                i[c][a] = i[c][d];
+                                i[c][d] = ssd;
+                                visiting[i[c][d]] = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         /**
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
