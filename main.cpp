@@ -30,8 +30,187 @@ int main(){
 		}cout << endl;
 	}cout << endl << endl;
 	
+	// par1 - 1
+	bool visit1[10];
+	for(int a=0; a<=2; a++){
+		for(int b=0; b<=2; b++){
+			visit1[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=0; a<=2; a++){
+		for(int b=0; b<=2; b++){
+			if(visit1[i[a][b]]){
+				i[a][b] = 0;
+			}visit1[i[a][b]] = true;
+		}
+	}
+	
+	// part - 2
+	
+	bool visit2[10];
+	for(int a=0; a<=2; a++){
+		for(int b=3; b<=5; b++){
+			visit2[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=0; a<=2; a++){
+		for(int b=3; b<=5; b++){
+			if(visit2[i[a][b]]){
+				i[a][b] = 0;
+			}visit2[i[a][b]] = true;
+		}
+	}
 	
 	
+	// part - 3
+	
+	bool visit3[10];
+	for(int a=0; a<=2; a++){
+		for(int b=6; b<=8; b++){
+			visit3[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=0; a<=2; a++){
+		for(int b=6; b<=8; b++){
+			if(visit3[i[a][b]]){
+				i[a][b] = 0;
+			}visit3[i[a][b]] = true;
+		}
+	}
+	
+	
+	// par1 - 4
+	
+	bool visit4[10];
+	for(int a=3; a<=5; a++){
+		for(int b=0; b<=2; b++){
+			visit4[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=3; a<=5; a++){
+		for(int b=0; b<=2; b++){
+			if(visit4[i[a][b]]){
+				i[a][b] = 0;
+			}visit4[i[a][b]] = true;
+		}
+	}
+	
+	// part - 5
+	
+	bool visit5[10];
+	for(int a=3; a<=5; a++){
+		for(int b=3; b<=5; b++){
+			visit5[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=3; a<=5; a++){
+		for(int b=3; b<=5; b++){
+			if(visit5[i[a][b]]){
+				i[a][b] = 0;
+			}visit5[i[a][b]] = true;
+		}
+	}
+	
+	
+	// part - 6
+	bool visit6[10];
+	for(int a=3; a<=5; a++){
+		for(int b=6; b<=8; b++){
+			visit6[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=3; a<=5; a++){
+		for(int b=6; b<=8; b++){
+			if(visit6[i[a][b]]){
+				i[a][b] = 0;
+			}visit6[i[a][b]] = true;
+		}
+	}
+	
+	// par1 - 7
+	
+	bool visit7[10];
+	for(int a=6; a<=8; a++){
+		for(int b=0; b<=2; b++){
+			visit7[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=6; a<=8; a++){
+		for(int b=0; b<=2; b++){
+			if(visit7[i[a][b]]){
+				i[a][b] = 0;
+			}visit7[i[a][b]] = true;
+		}
+	}
+	
+	// part - 8
+	
+	bool visit8[10];
+	for(int a=6; a<=8; a++){
+		for(int b=3; b<=5; b++){
+			visit8[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=6; a<=8; a++){
+		for(int b=3; b<=5; b++){
+			if(visit8[i[a][b]]){
+				i[a][b] = 0;
+			}visit8[i[a][b]] = true;
+		}
+	}
+	
+	
+	// part - 9
+	
+	bool visit9[10];
+	for(int a=6; a<=8; a++){
+		for(int b=6; b<=8; b++){
+			visit9[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=6; a<=8; a++){
+		for(int b=6; b<=8; b++){
+			if(visit9[i[a][b]]){
+				i[a][b] = 0;
+			}visit9[i[a][b]] = true;
+		}
+	}
+	/*
+	// part - 2;
+	bool visit2[10];
+	for(int a=0; a<=2; a++){
+		for(int b=3; b<=5; b++){
+			visit2[i[a][b]] = false;	
+		}
+	}
+	
+	for(int a=0; a<=2; a++){
+		for(int b=3; b<=5; b++){
+			if(visit2[i[a][b]]){
+				int ssd = i[a][b];
+				for(int c=b+1; c<9; c++){
+					
+					if(i[a][c]>0 and !visit2[i[a][c]]){
+						i[a][b] = i[a][c];
+						i[a][c] = ssd;
+						visit2[ssd] = true;
+						break;
+					}
+				}cout << endl;
+			}visit2[i[a][b]] = true;
+		}
+	}cout << endl << endl;
+	
+	/**
 	// part 1
 	bool visit1[10];
 	for(int a=0; a<=2; a++){
@@ -119,6 +298,8 @@ int main(){
 		}
 	}
 	
+	
+	/*
 	// part 2
 	bool visit2[10];
 	for(int a=0; a<=2; a++){
@@ -301,7 +482,7 @@ int main(){
 	for(int a=1; a<=9; a++){
 		checker[a] = false;
 	}*/
-	
+	/*
 	for(int a=0; a<=2; a++){
 		bool visiting[10];
 		for(int b=1; b<=9; b++){
