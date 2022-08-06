@@ -478,22 +478,18 @@ public class SudukuController implements Initializable {
 
         // part - 4
 
-        int p2 = 0;
         for(int a=3; a<=5; a++){
-            boolean[] visit1 = new boolean[10];
-            // number 1 to 9
-            for(int b=1; b<=9; b++){
-                visit1[b] = false;
-            }
-            // cell value come from i[a][b]
-            for(int b=3; b<=8; b++){
-                visit1[i[a][b]] = true;
-            }
-
             // cell value check
             for(int b=0; b<=2; b++){
+                boolean[] visit1 = new boolean[10];
+                // number 1 to 9
+                for(int c=1; c<=9; c++){
+                    visit1[c] = false;
+                }
                 for(int c=a-1; c>=0; c--){
-                    visit1[i[c][b]] = true;
+                    if(!visit[a][b]) {
+                        visit1[i[c][b]] = true;
+                    }
                 }
                 if(!visit1[i[a][b]] && !visit[a][b]){
                     visit[a][b] = true;
@@ -517,8 +513,145 @@ public class SudukuController implements Initializable {
                         }
                     }
                 }
-            }p2++;
+            }
         }
+
+        // part - 7
+
+        for(int a=6; a<=8; a++){
+
+            // cell value check
+            for(int b=0; b<=2; b++){
+                boolean[] visit1 = new boolean[10];
+                // number 1 to 9
+                for(int c=1; c<=9; c++){
+                    visit1[c] = false;
+                }
+                for(int c=a-1; c>=0; c--){
+                    if(!visit[a][b]) {
+                        visit1[i[c][b]] = true;
+                    }
+                }
+                if(!visit1[i[a][b]] && !visit[a][b]){
+                    visit[a][b] = true;
+                    visit1[i[a][b]] = true;
+                }else{
+                    int ssd = i[a][b];
+                    for(int d=6; d<=8; d++){
+                        boolean porting = false;
+                        for(int e=0; e<=2; e++) {
+                            if (!visit1[i[d][e]] && !visit[d][e]) {
+                                i[a][b] = i[d][e];
+                                i[d][e] = ssd;
+                                visit1[i[a][b]] = true;
+                                visit[a][b] = true;
+                                porting = true;
+                                break;
+                            }
+                        }
+                        if(porting){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+        // part - 5
+
+        for(int a=3; a<=5; a++){
+            boolean[] visit1 = new boolean[10];
+            // number 1 to 9
+            for(int b=1; b<=9; b++){
+                visit1[b] = false;
+            }
+            // cell value come from i[a][b]
+            for(int b=0; b<=2; b++){
+                visit1[i[a][b]] = true;
+            }
+
+            for(int b=6; b<=8; b++){
+                visit1[i[a][b]] = true;
+            }
+
+            // cell value check
+            for(int b=3; b<=5; b++){
+                for(int c=a-1; c>=0; c--){
+                    visit1[i[c][b]] = true;
+                }
+                if(!visit1[i[a][b]] && !visit[a][b]){
+                    visit[a][b] = true;
+                    visit1[i[a][b]] = true;
+                }else{
+                    int ssd = i[a][b];
+                    for(int d=3; d<=5; d++){
+                        boolean porting = false;
+                        for(int e=3; e<=5; e++) {
+                            if (!visit1[i[d][e]] && !visit[d][e]) {
+                                i[a][b] = i[d][e];
+                                i[d][e] = ssd;
+                                visit1[i[a][b]] = true;
+                                visit[a][b] = true;
+                                porting = true;
+                                break;
+                            }
+                        }
+                        if(porting){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // part - 6
+
+        for(int a=3; a<=5; a++){
+            boolean[] visit1 = new boolean[10];
+            // number 1 to 9
+            for(int b=1; b<=9; b++){
+                visit1[b] = false;
+            }
+            // cell value come from i[a][b]
+            for(int b=0; b<=5; b++){
+                visit1[i[a][b]] = true;
+                System.out.print(i[a][b] + " ");
+            }
+            System.out.println("");
+
+            // cell value check
+            for(int b=6; b<=8; b++){
+                for(int c=a-1; c>=0; c--){
+                    visit1[i[c][b]] = true;
+                    System.out.print(i[c][b] + " ");
+                }
+                System.out.println("");
+                if(!visit1[i[a][b]] && !visit[a][b]){
+                    visit[a][b] = true;
+                    visit1[i[a][b]] = true;
+                }else{
+                    int ssd = i[a][b];
+                    for(int d=3; d<=5; d++){
+                        boolean porting = false;
+                        for(int e=6; e<=8; e++) {
+                            if (!visit1[i[d][e]] && !visit[d][e]) {
+                                i[a][b] = i[d][e];
+                                i[d][e] = ssd;
+                                visit1[i[a][b]] = true;
+                                visit[a][b] = true;
+                                porting = true;
+                                break;
+                            }
+                        }
+                        if(porting){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
 
         /*
         // part - 3
