@@ -373,7 +373,7 @@ public class SudukuController implements Initializable {
                                 System.out.print(i[d][e] + " ");
                                 i[a][b] = i[d][e];
                                 i[d][e] = ssd;
-//                                visit1[i[d][e]] = true;
+                                visit1[i[a][b]] = true;
                                 visit[a][b] = true;
                                 porting = true;
                                 break;
