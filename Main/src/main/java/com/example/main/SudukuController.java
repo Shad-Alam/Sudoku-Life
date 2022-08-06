@@ -219,6 +219,179 @@ public class SudukuController implements Initializable {
     private void setValue(){
         Random random = new Random();
 
+        int[] j1 = {1,2,3,4,5,6,7,8,9}; int p1 = 9;
+
+        for(int a=0; a<=2; a++){
+            for(int b=0; b<=2; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-2
+        for(int a=0; a<=2; a++){
+            for(int b=3; b<=5; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-3
+        for(int a=0; a<=2; a++){
+            for(int b=6; b<=8; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-4
+        for(int a=3; a<=5; a++){
+            for(int b=0; b<=2; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-5
+        for(int a=3; a<=5; a++){
+            for(int b=3; b<=5; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-6
+        for(int a=3; a<=5; a++){
+            for(int b=6; b<=8; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-7
+        for(int a=6; a<=8; a++){
+            for(int b=0; b<=2; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        p1 = 9;
+        // part-8
+        for(int a=6; a<=8; a++){
+            for(int b=3; b<=5; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+
+        p1 = 9;
+        // part-9
+        for(int a=6; a<=8; a++){
+            for(int b=6; b<=8; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        // -------------------------------------
+        // ------------- PART Checker ----------
+        // -------------------------------------
+
+        boolean[][] visit = new boolean[10][10];
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                visit[a][b] = false;
+            }
+        }
+
+        for(int a=0; a<=2; a++){
+            boolean[] visit1 = new boolean[10];
+            // number 1 to 9
+            for(int b=1; b<=9; b++){
+                visit1[b] = false;
+            }
+            // cell value come from i[a][b]
+            for(int b=3; b<9; b++){
+                visit1[i[a][b]] = true;
+            }
+
+            // cell value check
+            for(int b=0; b<=2; b++){
+                if(!visit1[i[a][b]]){
+                    visit[a][b] = true;
+                    visit1[i[a][b]] = true;
+                }else{
+                    int ssd = i[a][b];
+                    for(int d=0; d<=2; d++){
+                        boolean porting = false;
+                        for(int e=0; e<=2; e++) {
+                            if (!visit1[i[d][e]] && !visit[d][e]) {
+                                System.out.print(i[d][e] + " ");
+                                i[a][b] = i[d][e];
+                                i[d][e] = ssd;
+//                                visit1[i[d][e]] = true;
+                                visit[a][b] = true;
+                                porting = true;
+                                break;
+                            }
+                        }
+                        System.out.println("");
+
+                        if(porting){
+                            break;
+                        }
+                    }
+                }
+            }
+            System.out.println("");
+        }
+
+
+        /*
         int n = 9;
         for(int a=0; a<9; a++){
             int j[] = {1,2,3,4,5,6,7,8,9}, p = 9;
@@ -234,93 +407,7 @@ public class SudukuController implements Initializable {
             System.out.println("");
         }
 
-        // part 1
-        boolean[] visit1 = new boolean[10];
-        for(int a=0; a<=2; a++){
-            for(int b=0; b<=2; b++){
-                visit1[i[a][b]] = false;
-            }
-        }
-        // remove value in circle is found
-        int[] j1 = new int[10];
-        int p1 = 0;
-        for(int a=0; a<=2; a++){
-            for(int b=0; b<=2; b++){
-                if(visit1[i[a][b]]){
-                    int ssd = i[a][b];
-                    i[a][b] = 0;
-
-                    j1[p1] = ssd;
-                    p1++;
-
-                }visit1[i[a][b]] = true;
-            }
-        }
-
-        // add all necessary value
-        p1 = 0;
-        for(int c=1; c<=n; c++){
-            if(!visit1[c]){
-                for(int a=0; a<=2; a++){
-                    boolean port1 = false;
-                    for(int b=0; b<=2; b++){
-                        if(i[a][b]==0){
-                            int ssd = j1[p1];
-                            for(int d=b+1; d<9; d++){
-                                if(i[a][d]==c){
-                                    i[a][b] = c;
-                                    i[a][d] = ssd;
-                                    p1++;
-                                    visit1[c] = true;
-                                    port1 = true;
-                                    break;
-                                }
-                            }
-
-                            if(port1){
-                                break;
-                            }
-                        }
-                    }
-
-                    if(port1){
-                        break;
-                    }
-                }
-            }
-        }
-
-        // swap value if match
-        for(int a=0; a<=2; a++){
-            boolean[] visiting = new boolean[10];
-            for(int b=1; b<=9; b++){
-                visiting[b] = false;
-            }
-            for(int b=0; b<=2; b++){
-                visiting[i[b][a]] = true;
-            }
-            for(int b=0; b<=2; b++){
-                int ssd = i[b][a];
-                visit[a][b] = true;
-                for(int c=3; c<9; c++){
-                    if(i[c][a]==ssd){
-                        i[c][a] = 0;
-                        for(int d=0; d<9; d++){
-                            if(visit[c][d]){
-                                continue;
-                            }
-                            if(!visiting[i[c][d]] && d!=a){
-                                i[c][a] = i[c][d];
-                                i[c][d] = ssd;
-                                visiting[i[c][d]] = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
+        /*
 
 
         /**
@@ -443,12 +530,6 @@ public class SudukuController implements Initializable {
 
         // search in part1
 
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-
-            }
-        }
-
 
         tf_0_0.setText(String.valueOf(i[0][0]));
         tf_0_1.setText(String.valueOf(i[0][1]));
@@ -532,22 +613,23 @@ public class SudukuController implements Initializable {
         tf_8_7.setText(String.valueOf(i[8][7]));
         tf_8_8.setText(String.valueOf(i[8][8]));
 
-        /**
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.println("tf_" + a + "_" + b + ".setText(String.valueOf(i["+ a +"][" + b +"]));");
-            }
-        }*/
+
+//        for(int a=0; a<9; a++){
+//            for(int b=0; b<9; b++){
+//                System.out.println("tf_" + a + "_" + b + ".setText(String.valueOf(i["+ a +"][" + b +"]));");
+//            }
+//        }
         //int n = 12;
         //tf_0_0.setText(String.valueOf(n));
     }
 
     public void newGame(ActionEvent actionEvent) {
         setValue();
-        for(int a=1; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.println(i[a][b]);
-            }
-        }
+//        for(int a=0; a<9; a++){
+//            for(int b=0; b<9; b++){
+//                System.out.print(a + b + " ");
+//            }
+//            System.out.println("");
+//        }
     }
 }
