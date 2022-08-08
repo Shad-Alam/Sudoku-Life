@@ -217,10 +217,24 @@ public class SudukuController implements Initializable {
         b = sp;
     }
     private void setValue(){
+
+        /*
+        2 4 8 5 9 7 3 1 6
+        5 4 8 9 3 6 1 7 2
+        5 8 3 9 1 4 6 7 2
+        7 1 8 6 9 3 5 2 4
+        7 5 1 4 9 8 6 2 3
+        3 5 1 6 8 9 2 7 4
+        6 5 2 8 9 7 3 4 1
+        6 3 2 9 8 1 4 5 7
+        3 4 8 5 2 6 9 7 1
+         */
+
         Random random = new Random();
 
         int[] j1 = {1,2,3,4,5,6,7,8,9}; int p1 = 9;
 
+        // part-1
         for(int a=0; a<=2; a++){
             for(int b=0; b<=2; b++){
                 int nn = random.nextInt(p1);
@@ -245,6 +259,43 @@ public class SudukuController implements Initializable {
             }
         }
 
+        // part-2 section-1
+        int[] s1 = {i[0][0], i[0][1], i[0][2]};
+        boolean[] sb1 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            sb1[a] = false;
+        }
+
+        for(int a=0; a<3; a++){
+            sb1[s1[a]] = true;
+        }
+
+        for(int a=3; a<=5; a++){
+            if(sb1[i[0][a]]){
+                int ssd = i[0][a];
+                boolean port1 = false;
+                for(int b=3; b<=5; b++){
+                    if(!sb1[i[1][b]]){
+                        i[0][a] = i[1][b];
+                        i[1][b] = ssd;
+                        port1 = true;
+                        break;
+                    }
+                }
+
+                if(!port1){
+                    for(int b=3; b<=5; b++){
+                        if(!sb1[i[2][b]]){
+                            i[0][a] = i[2][b];
+                            i[2][b] = ssd;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
         p1 = 9;
         // part-3
         for(int a=0; a<=2; a++){
