@@ -322,6 +322,30 @@ public class SudukuController implements Initializable {
             }
         }
 
+        // part-2 section-3
+        int[] s3 = {i[2][0], i[2][1], i[2][2]};
+        boolean[] sb3 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            sb3[a] = false;
+        }
+
+        for(int a=0; a<3; a++){
+            sb3[s3[a]] = true;
+        }
+
+        for(int a=3; a<=5; a++){
+            if(sb3[i[2][a]]){
+                int ssd = i[2][a];
+                for(int b=3; b<=5; b++){
+                    if(!sb3[i[1][b]] && !sb2[ssd]){
+                        i[2][a] = i[1][b];
+                        i[1][b] = ssd;
+                        break;
+                    }
+                }
+            }
+        }
+
         /*
         p1 = 9;
         // part-3
