@@ -348,6 +348,43 @@ public class SudukuController implements Initializable {
             }
         }
 
+        // part - 2
+        for(int a=0; a<=2; a++){
+            for(int b=3; b<=5; b++){
+                boolean[] visit1 = new boolean[10];
+                for(int c=9; c>=1; c--){
+                    visit1[c] = false;
+                }
+                for(int c=b-1; c>=0; c--){
+                    System.out.print(i[a][c] + " ");
+                    visit1[i[a][c]] = true;
+                }
+                System.out.println("");
+
+
+                if(!visit[a][b]){
+                    int ssd = i[a][b];
+                    for(int c=0; c<=2; c++){
+                        boolean port2 = false;
+                        for(int d=3; d<=5; d++){
+                            if(!visit[c][d] && !visit1[i[c][d]]){
+                                i[a][b] = i[c][d];
+                                i[c][d] = ssd;
+                                port2 = true;
+                                visit[a][b] = true;
+                                visit1[i[a][b]] = true;
+                                break;
+                            }
+                        }
+                        if(port2){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
         // part - 1
 
         for(int a=0; a<=2; a++){
@@ -515,6 +552,9 @@ public class SudukuController implements Initializable {
                 }
             }
         }
+
+
+        /////////////////////////////////////////////////
 
         // part - 7
 
