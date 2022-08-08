@@ -346,9 +346,8 @@ public class SudukuController implements Initializable {
             }
         }
 
-        /*
-        p1 = 9;
         // part-3
+        p1 = 9;
         for(int a=0; a<=2; a++){
             for(int b=6; b<=8; b++){
                 int nn = random.nextInt(p1);
@@ -359,7 +358,47 @@ public class SudukuController implements Initializable {
                 p1--;
             }
         }
+        // part-3 section - 1
+        int[] r1 = {i[0][0], i[0][1], i[0][2], i[0][3], i[0][4], i[0][5], i[0][6]};
+        boolean[] rb1 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            rb1[a] = false;
+        }
 
+        for(int a=0; a<6; a++){
+            rb1[r1[a]] = true;
+        }
+
+        for(int a=6; a<=8; a++){
+            if(rb1[i[0][a]]){
+                int ssd = i[0][a];
+                boolean port1 = false;
+                for(int b=6; b<=8; b++){
+                    if(!rb1[i[1][b]]){
+                        i[0][a] = i[1][b];
+                        i[1][b] = ssd;
+                        port1 = true;
+                        break;
+                    }
+                }
+
+                if(!port1){
+                    for(int b=3; b<=5; b++){
+                        if(!rb1[i[2][b]]){
+                            i[0][a] = i[2][b];
+                            i[2][b] = ssd;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
+        int[] r3 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5], i[2][6]};
+
+        /*
         p1 = 9;
         // part-4
         for(int a=3; a<=5; a++){
