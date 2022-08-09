@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 /*
 vector<int> j;
 void reset(){
