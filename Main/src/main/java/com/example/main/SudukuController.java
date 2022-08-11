@@ -259,6 +259,7 @@ public class SudukuController implements Initializable {
             }
         }
 
+
         // part-2 section-1
         int[] s1 = {i[0][0], i[0][1], i[0][2]};
         boolean[] sb1 = new boolean[11];
@@ -268,31 +269,6 @@ public class SudukuController implements Initializable {
 
         for(int a=0; a<3; a++){
             sb1[s1[a]] = true;
-        }
-
-        for(int a=3; a<=5; a++){
-            if(sb1[i[0][a]]){
-                int ssd = i[0][a];
-                boolean port1 = false;
-                for(int b=3; b<=5; b++){
-                    if(!sb1[i[1][b]]){
-                        i[0][a] = i[1][b];
-                        i[1][b] = ssd;
-                        port1 = true;
-                        break;
-                    }
-                }
-
-                if(!port1){
-                    for(int b=3; b<=5; b++){
-                        if(!sb1[i[2][b]]){
-                            i[0][a] = i[2][b];
-                            i[2][b] = ssd;
-                            break;
-                        }
-                    }
-                }
-            }
         }
 
         // part-2 section-2
@@ -306,22 +282,6 @@ public class SudukuController implements Initializable {
             sb2[s2[a]] = true;
         }
 
-        for(int a=3; a<=5; a++){
-            if(sb2[i[1][a]]){
-                int ssd = i[1][a];
-                boolean port1 = false;
-                for(int b=3; b<=5; b++){
-                    if(!sb2[i[2][b]]){
-                        i[1][a] = i[2][b];
-                        i[2][b] = ssd;
-                        port1 = true;
-                        break;
-                    }
-                }
-
-            }
-        }
-
         // part-2 section-3
         int[] s3 = {i[2][0], i[2][1], i[2][2]};
         boolean[] sb3 = new boolean[11];
@@ -333,6 +293,106 @@ public class SudukuController implements Initializable {
             sb3[s3[a]] = true;
         }
 
+        for(int a=0; a<=2; a++) {
+            if(a==0){
+                // part-2 section-1 fixing-1
+                for(int b=3; b<=5; b++){
+                    if(sb1[i[a][b]]){
+                        int ssd = i[a][b];
+                        boolean port9 = false;
+                        // search in section-2
+                        if(!sb2[ssd]) {
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb1[i[1][c]] && !sb2[i[1][c]]){
+                                    i[a][b] = i[1][c];
+                                    i[1][c] = ssd;
+                                    port9 = true;
+                                   // sb2[ssd] = true;
+                                  //  sb1[i[a][b]] = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if(!port9){
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb1[i[2][c]] && !sb2[i[2][c]]){
+                                    i[a][b] = i[2][c];
+                                    i[2][c] = ssd;
+                                    //sb3[ssd] = true;
+                                   // sb1[i[a][b]] = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(a==1){
+                // part-2 section-2 fixing-2
+                for(int b=3; b<=5; b++){
+                    if(sb2[i[a][b]]){
+                        int ssd = i[a][b];
+                        boolean port9 = false;
+                        // search in section-2
+                        if(!sb1[ssd]) {
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb1[i[0][c]] && !sb2[i[0][c]]){
+                                    i[a][b] = i[0][c];
+                                    i[0][c] = ssd;
+                                    port9 = true;
+                                    //sb1[ssd] = true;
+                                   // sb2[i[a][b]] = true;
+                                    break;
+                                }
+                            }
+                        }
+                        // sb3
+                        if(!port9){
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb3[i[2][c]] && !sb2[i[2][c]]){
+                                    i[a][b] = i[2][c];
+                                    i[2][c] = ssd;
+                                    //sb3[ssd] = true;
+                                    //sb1[i[a][b]] = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }else{
+                for(int b=3; b<=5; b++){
+                    if(sb3[i[a][b]]){
+                        int ssd = i[a][b];
+                        boolean port9 = false;
+                        // search in section-2
+                        // sb1
+                        if(!sb1[ssd]) {
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb1[i[0][c]] && !sb3[i[0][c]]){
+                                    i[a][b] = i[0][c];
+                                    i[0][c] = ssd;
+                                    port9 = true;
+                                    break;
+                                }
+                            }
+                        }
+                        // sb2
+                        if(!port9){
+                            for (int c = 3; c <= 5; c++) {
+                                if(!sb3[i[1][c]] && !sb2[i[1][c]]){
+                                    i[a][b] = i[1][c];
+                                    i[1][c] = ssd;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
         for(int a=3; a<=5; a++){
             if(sb3[i[2][a]]){
                 int ssd = i[2][a];
