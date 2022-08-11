@@ -246,6 +246,12 @@ public class SudukuController implements Initializable {
             }
         }
 
+        // Flag - 1
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
         p1 = 9;
         // part-2
         for(int a=0; a<=2; a++){
@@ -297,30 +303,23 @@ public class SudukuController implements Initializable {
             if(a==0){
                 // part-2 section-1 fixing-1
                 for(int b=3; b<=5; b++){
-                    if(sb1[i[a][b]]){
+                    if(sb1[i[a][b]]){ // 1
                         int ssd = i[a][b];
                         boolean port9 = false;
-                        // search in section-2
-                        if(!sb2[ssd]) {
+                        if(!sb2[ssd]) { // 2
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[1][c]] && !sb2[i[1][c]]){
+                                if(!sb1[i[1][c]]){
                                     i[a][b] = i[1][c];
                                     i[1][c] = ssd;
                                     port9 = true;
-                                   // sb2[ssd] = true;
-                                  //  sb1[i[a][b]] = true;
                                     break;
                                 }
                             }
-                        }
-
-                        if(!port9){
+                        }else{ // 3
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[2][c]] && !sb2[i[2][c]]){
+                                if(!sb1[i[2][c]]){
                                     i[a][b] = i[2][c];
                                     i[2][c] = ssd;
-                                    //sb3[ssd] = true;
-                                   // sb1[i[a][b]] = true;
                                     break;
                                 }
                             }
@@ -330,30 +329,23 @@ public class SudukuController implements Initializable {
             }else if(a==1){
                 // part-2 section-2 fixing-2
                 for(int b=3; b<=5; b++){
-                    if(sb2[i[a][b]]){
+                    if(sb2[i[a][b]]){ // 2
                         int ssd = i[a][b];
                         boolean port9 = false;
-                        // search in section-2
-                        if(!sb1[ssd]) {
+                        if(!sb1[ssd]) { // 1
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[0][c]] && !sb2[i[0][c]]){
+                                if(!sb2[i[0][c]]){
                                     i[a][b] = i[0][c];
                                     i[0][c] = ssd;
                                     port9 = true;
-                                    //sb1[ssd] = true;
-                                   // sb2[i[a][b]] = true;
                                     break;
                                 }
                             }
-                        }
-                        // sb3
-                        if(!port9){
+                        }else{ // 3
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb3[i[2][c]] && !sb2[i[2][c]]){
+                                if(!sb2[i[2][c]]){
                                     i[a][b] = i[2][c];
                                     i[2][c] = ssd;
-                                    //sb3[ssd] = true;
-                                    //sb1[i[a][b]] = true;
                                     break;
                                 }
                             }
@@ -362,30 +354,113 @@ public class SudukuController implements Initializable {
                 }
             }else{
                 for(int b=3; b<=5; b++){
-                    if(sb3[i[a][b]]){
+                    if(sb3[i[a][b]]){ // 3
                         int ssd = i[a][b];
                         boolean port9 = false;
-                        // search in section-2
-                        // sb1
-                        if(!sb1[ssd]) {
+                        if(!sb1[ssd]) { // 1
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[0][c]] && !sb3[i[0][c]]){
+                                if(!sb3[i[0][c]]){
                                     i[a][b] = i[0][c];
                                     i[0][c] = ssd;
                                     port9 = true;
                                     break;
                                 }
                             }
-                        }
-                        // sb2
-                        if(!port9){
+                        }else{ // 2
                             for (int c = 3; c <= 5; c++) {
-                                if(!sb3[i[1][c]] && !sb2[i[1][c]]){
+                                if(!sb3[i[1][c]]){
                                     i[a][b] = i[1][c];
                                     i[1][c] = ssd;
                                     break;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Flag - 2
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------
+        p1 = 9;
+        // part-3
+        for(int a=0; a<=2; a++){
+            for(int b=6; b<=8; b++){
+                int nn = random.nextInt(p1);
+                i[a][b] = j1[nn];
+                int sp = j1[nn];
+                j1[nn] = j1[p1-1];
+                j1[p1-1] = sp;
+                p1--;
+            }
+        }
+
+        // part-3 section-1
+        int[] s4 = {i[0][0], i[0][1], i[0][2],i[0][3], i[0][4], i[0][5]};
+        boolean[] sb4 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            sb4[a] = false;
+        }
+
+        for(int a=0; a<6; a++){
+            sb4[s4[a]] = true;
+        }
+
+        // part-3 section-2
+        int[] s5 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5]};
+        boolean[] sb5 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            sb5[a] = false;
+        }
+
+        for(int a=0; a<6; a++){
+            sb5[s5[a]] = true;
+        }
+
+        // part-3 section-3
+        int[] s6 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5]};
+        boolean[] sb6 = new boolean[11];
+        for(int a=1; a<=9; a++){
+            sb6[a] = false;
+        }
+
+        for(int a=0; a<6; a++){
+            sb6[s6[a]] = true;
+        }
+
+        for(int a=0; a<=2; a++) {
+            if(a==0){
+                // part-3 section-1 fixing-1
+                for(int b=6; b<=8; b++){
+                    for(int c=1; c<=9; c++){
+                        if(!sb4[c]){
+                            i[a][b] = c;
+                            sb4[c] = true;
+                            break;
+                        }
+                    }
+                }
+            }else if(a==1){
+                for(int b=6; b<=8; b++){
+                    for(int c=1; c<=9; c++){
+                        if(!sb5[c]){
+                            i[a][b] = c;
+                            sb5[c] = true;
+                            break;
+                        }
+                    }
+                }
+            }else{
+                for(int b=6; b<=8; b++){
+                    for(int c=1; c<=9; c++){
+                        if(!sb6[c]){
+                            i[a][b] = c;
+                            sb6[c] = true;
+                            break;
                         }
                     }
                 }
