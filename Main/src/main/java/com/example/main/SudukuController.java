@@ -648,64 +648,26 @@ public class SudukuController implements Initializable {
             }
         }
 
-        /*
-        // part-3 section-2
-        int[] s5 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5]};
-        boolean[] sb5 = new boolean[11];
+        // part-7 section-1 row-2
+        int[] d3 = {i[0][2], i[1][2], i[2][2],i[3][2], i[4][2], i[5][2]};
+        boolean[] db3 = new boolean[11];
         for(int a=1; a<=9; a++){
-            sb5[a] = false;
+            db3[a] = false;
         }
 
         for(int a=0; a<6; a++){
-            sb5[s5[a]] = true;
+            db3[d3[a]] = true;
         }
 
-        // part-3 section-3
-        int[] s6 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5]};
-        boolean[] sb6 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb6[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            sb6[s6[a]] = true;
-        }
-
-        for(int a=0; a<=2; a++) {
-            if(a==0){
-                // part-3 section-1 fixing-1
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb4[c]){
-                            i[a][b] = c;
-                            sb4[c] = true;
-                            break;
-                        }
-                    }
-                }
-            }else if(a==1){
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb5[c]){
-                            i[a][b] = c;
-                            sb5[c] = true;
-                            break;
-                        }
-                    }
-                }
-            }else{
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb6[c]){
-                            i[a][b] = c;
-                            sb6[c] = true;
-                            break;
-                        }
-                    }
+        for(int a=6; a<=8; a++){
+            for(int b=1; b<=9; b++){
+                if(!db3[b]){
+                    i[a][2] = b;
+                    db3[b] = true;
+                    break;
                 }
             }
         }
-
 
         /*
         int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
