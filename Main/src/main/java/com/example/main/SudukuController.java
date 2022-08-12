@@ -488,7 +488,7 @@ public class SudukuController implements Initializable {
 
 
         // part-4 section-1
-        int[] r1 = {i[3][0], i[4][0], i[5][0]};
+        int[] r1 = {i[0][0], i[1][0], i[2][0]};
         boolean[] rb1 = new boolean[11];
         for(int a=1; a<=9; a++){
             rb1[a] = false;
@@ -499,7 +499,7 @@ public class SudukuController implements Initializable {
         }
 
         // part-4 section-2
-        int[] r2 = {i[3][1], i[4][1], i[5][1]};
+        int[] r2 = {i[0][1], i[1][1], i[2][1]};
         boolean[] rb2 = new boolean[11];
         for(int a=1; a<=9; a++){
             rb2[a] = false;
@@ -510,7 +510,7 @@ public class SudukuController implements Initializable {
         }
 
         // part-4 section-3
-        int[] r3 = {i[3][2], i[4][2], i[5][2]};
+        int[] r3 = {i[0][2], i[1][2], i[2][2]};
         boolean[] rb3 = new boolean[11];
         for(int a=1; a<=9; a++){
             rb3[a] = false;
@@ -519,15 +519,41 @@ public class SudukuController implements Initializable {
         for(int a=0; a<3; a++){
             rb3[r3[a]] = true;
         }
+        // r1 r2 r3
         // 30 31 32
         // 40 41 42
         // 50 51 52
+
+        // section-4 row-1
+        for(int a=3; a<=5; a++){
+            System.out.println(i[a][0]);
+            if(rb1[i[a][0]]){ // row 1
+                int ssd = i[a][0];
+                if(!rb2[i[a][0]]){ // row 2
+                    for(int b=3; b<=5; b++) {
+                        if(!rb1[i[b][1]]){
+                            i[a][0] = i[b][1];
+                            i[b][1] = ssd;
+                            break;
+                        }
+                    }
+                }else{ // row 3
+                    for(int b=3; b<=5; b++){
+                        if(!rb1[i[b][2]]){
+                            i[a][0] = i[b][2];
+                            i[b][2] = ssd;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
 
         /*
         int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
         int[] r3 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5], i[2][6]};
-        
+
          */
 
         tf_0_0.setText(String.valueOf(i[0][0]));
