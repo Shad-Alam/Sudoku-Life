@@ -526,7 +526,6 @@ public class SudukuController implements Initializable {
 
         // section-4 row-1
         for(int a=3; a<=5; a++){
-            System.out.println(i[a][0]);
             if(rb1[i[a][0]]){ // row 1
                 int ssd = i[a][0];
                 if(!rb2[i[a][0]]){ // row 2
@@ -566,6 +565,30 @@ public class SudukuController implements Initializable {
                         if(!rb2[i[b][2]]){
                             i[a][1] = i[b][2];
                             i[b][2] = ssd;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // section-4 row-3
+        for(int a=3; a<=5; a++){
+            if(rb3[i[a][2]]){ // row 3
+                int ssd = i[a][2];
+                if(!rb1[i[a][2]]){ // row 1
+                    for(int b=3; b<=5; b++) {
+                        if(!rb3[i[b][0]]){
+                            i[a][2] = i[b][0];
+                            i[b][0] = ssd;
+                            break;
+                        }
+                    }
+                }else{ // row 2
+                    for(int b=3; b<=5; b++){
+                        if(!rb3[i[b][1]]){
+                            i[a][2] = i[b][1];
+                            i[b][1] = ssd;
                             break;
                         }
                     }
