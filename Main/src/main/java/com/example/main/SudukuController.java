@@ -549,6 +549,30 @@ public class SudukuController implements Initializable {
             }
         }
 
+        // section-4 row-2
+        for(int a=3; a<=5; a++){
+            if(rb2[i[a][1]]){ // row 2
+                int ssd = i[a][1];
+                if(!rb1[i[a][1]]){ // row 1
+                    for(int b=3; b<=5; b++) {
+                        if(!rb2[i[b][0]]){
+                            i[a][1] = i[b][0];
+                            i[b][0] = ssd;
+                            break;
+                        }
+                    }
+                }else{ // row 3
+                    for(int b=3; b<=5; b++){
+                        if(!rb2[i[b][2]]){
+                            i[a][1] = i[b][2];
+                            i[b][2] = ssd;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
 
         /*
         int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
