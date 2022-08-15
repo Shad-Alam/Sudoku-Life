@@ -790,132 +790,68 @@ public class SudukuController implements Initializable {
             mb3[m3[a]] = true;
         }
 
+        int[] zero = new int[10];
+        int ps = 0;
+
+        
         // row-1
         if(qb1[i[3][3]]){
+            zero[ps] = i[3][3]; ps++;
             i[3][3] = 0;
         }
 
         if(qb2[i[4][3]]){
+            zero[ps] = i[4][3]; ps++;
             i[4][3] = 0;
         }
 
         if(qb3[i[5][3]]){
+            zero[ps] = i[5][3]; ps++;
             i[5][3] = 0;
         }
 
         // row-2
 
         if(fb1[i[3][4]]){
+            zero[ps] = i[3][4]; ps++;
             i[3][4] = 0;
         }
 
         if(fb2[i[4][4]]){
+            zero[ps] = i[4][4]; ps++;
             i[4][4] = 0;
         }
 
         if(fb3[i[5][4]]){
+            zero[ps] = i[5][4]; ps++;
             i[5][4] = 0;
         }
 
         // row-3
 
         if(mb1[i[3][5]]){
+            zero[ps] = i[3][5]; ps++;
             i[3][5] = 0;
         }
 
         if(mb2[i[4][5]]){
+            zero[ps] = i[4][5]; ps++;
             i[4][5] = 0;
         }
 
         if(mb3[i[5][5]]){
+            zero[ps] = i[5][5]; ps++;
             i[5][5] = 0;
         }
 
-        boolean[] f9 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            f9[a] = false;
-        }
-        for(int a=3; a<=5; a++){
-            for(int b=3; b<=5; b++){
-                if(i[a][b]!=0){
-                    f9[i[a][b]] = true;
-                }
-            }
+        // q1 f1 m1
+        // q2 f2 m2
+        // q3 f3 m3
+
+        for(int a=0; a<ps; a++){
+            System.out.println(zero[a]);
         }
 
-        /**
-        for(int a=3; a<=5; a++){
-            for(int b=3; b<=5; b++){
-                if(i[a][b]==0){
-                    for(int c=9; c>=1; c--){
-                        if(!f9[c]){
-                            i[a][b] = c;
-                            f9[c] = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        /*
-        if(qb1[i[3][3]]) { ///////////////////>>     1
-//            int sm = i[3][3];
-//            if (!qb1[i[3][4]] && !fb1[sm]) { // 2
-//                i[3][3] = i[3][4];
-//                i[3][4] = sm;
-//            }else if(!qb1[i[3][5]] && !mb1[sm]){ // 3
-//                i[3][3] = i[3][5];
-//                i[3][5] = sm;
-//            }else if(!qb1[i[4][3]] && !qb2[sm]){ // 4
-//                i[3][3] = i[4][3];
-//                i[4][3] = sm;
-//            }else if(!qb1[i[4][4]] && !fb2[sm]){ // 5
-//                i[3][3] = i[4][4];
-//                i[4][4] = sm;
-//            }else if(!qb1[i[4][5]] && !mb2[sm]){ // 6
-//                i[3][3] = i[4][5];
-//                i[4][5] = sm;
-//            }else if(!qb1[i[5][3]] && !qb3[sm]){ // 7
-//                i[3][3] = i[5][3];
-//                i[5][3] = sm;
-//            }else if(!qb1[i[5][4]] && !fb3[sm]){ //8
-//                i[3][3] = i[5][4];
-//                i[5][4] = sm;
-//            }else if(!qb1[i[5][5]] && !mb3[sm]){ // 9
-//                i[3][3] = i[5][5];
-//                i[5][5] = sm;
-//            }
-            /////////// error-down
-        }else if(qb2[i[4][3]]) { //////////////////////// >> 2
-//            int sm = i[4][3];
-//
-//            if (!qb2[i[3][4]] && !fb1[sm]) { // 2
-//                i[4][3] = i[3][4];
-//                i[3][4] = sm;
-//            }else if(!qb2[i[3][5]] && !mb1[sm]){ // 3
-//                i[4][3] = i[3][5];
-//                i[3][5] = sm;
-//            }else if(!qb2[i[4][3]] && !qb2[sm]){ // 4
-//                i[4][3] = i[4][3];
-//                i[4][3] = sm;
-//            }else if(!qb2[i[4][4]] && !fb2[sm]){ // 5
-//                i[4][3] = i[4][4];
-//                i[4][4] = sm;
-//            }else if(!qb2[i[4][5]] && !mb2[sm]){ // 6
-//                i[4][3] = i[4][5];
-//                i[4][5] = sm;
-//            }else if(!qb2[i[5][3]] && !qb3[sm]){ // 7
-//                i[4][3] = i[5][3];
-//                i[5][3] = sm;
-//            }else if(!qb2[i[5][4]] && !fb3[sm]){ //8
-//                i[4][3] = i[5][4];
-//                i[5][4] = sm;
-//            }else if(!qb2[i[5][5]] && !mb3[sm]){ // 9
-//                i[4][3] = i[5][5];
-//                i[5][5] = sm;
-//            }
-        }
 
         /*
         int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
