@@ -790,67 +790,103 @@ public class SudukuController implements Initializable {
             mb3[m3[a]] = true;
         }
 
-        int[] zero = new int[10];
-        int ps = 0;
 
-        
         // row-1
         if(qb1[i[3][3]]){
-            zero[ps] = i[3][3]; ps++;
-            i[3][3] = 0;
+            boolean js = false;
+            for(int a=3; a<=5; a++){
+                for(int b=3; b<=5; b++){
+                    if(!qb1[i[a][b]]){
+                        int sp = i[3][3];
+                        i[3][3] = i[a][b];
+                        i[a][b] = sp;
+                        js = true;
+                        break;
+                    }
+                }
+
+                if(js){
+                    break;
+                }
+            }
         }
 
         if(qb2[i[4][3]]){
-            zero[ps] = i[4][3]; ps++;
-            i[4][3] = 0;
+            boolean js = false;
+            for(int a=3; a<=5; a++){
+                for(int b=3; b<=5; b++){
+                    if(!qb2[i[a][b]] && a!=3 && b!=3){
+                        int sp = i[4][3];
+                        i[4][3] = i[a][b];
+                        i[a][b] = sp;
+                        js = true;
+                        break;
+                    }
+                }
+
+                if(js){
+                    break;
+                }
+            }
         }
 
         if(qb3[i[5][3]]){
-            zero[ps] = i[5][3]; ps++;
-            i[5][3] = 0;
+            boolean js = false;
+            for(int a=3; a<=5; a++){
+                for(int b=3; b<=5; b++){
+                    if((a==3 && b==3) || (a==4 && b==3)){
+                        continue;
+                    }
+                    if(!qb3[i[a][b]]){
+                        int sp = i[5][3];
+                        i[5][3] = i[a][b];
+                        i[a][b] = sp;
+                        js = true;
+                        break;
+                    }
+                }
+
+                if(js){
+                    break;
+                }
+            }
         }
 
         // row-2
 
         if(fb1[i[3][4]]){
-            zero[ps] = i[3][4]; ps++;
             i[3][4] = 0;
         }
 
         if(fb2[i[4][4]]){
-            zero[ps] = i[4][4]; ps++;
             i[4][4] = 0;
         }
 
         if(fb3[i[5][4]]){
-            zero[ps] = i[5][4]; ps++;
             i[5][4] = 0;
         }
 
         // row-3
 
         if(mb1[i[3][5]]){
-            zero[ps] = i[3][5]; ps++;
             i[3][5] = 0;
         }
 
         if(mb2[i[4][5]]){
-            zero[ps] = i[4][5]; ps++;
             i[4][5] = 0;
         }
 
         if(mb3[i[5][5]]){
-            zero[ps] = i[5][5]; ps++;
             i[5][5] = 0;
         }
-
-        // q1 f1 m1
-        // q2 f2 m2
-        // q3 f3 m3
-
-        for(int a=0; a<ps; a++){
-            System.out.println(zero[a]);
-        }
+//
+//        // q1 f1 m1
+//        // q2 f2 m2
+//        // q3 f3 m3
+//
+//        for(int a=0; a<ps; a++){
+//            System.out.println(zero[a]);
+//        }
 
 
         /*
