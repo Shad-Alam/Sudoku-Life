@@ -690,6 +690,7 @@ public class SudukuController implements Initializable {
 
         /// Error-404
 
+        /*
         // part-5 section-1
         // q1[3][3]
         int[] q1 = {i[0][3], i[1][3], i[2][3], i[3][0], i[3][1], i[3][2]};
@@ -879,6 +880,7 @@ public class SudukuController implements Initializable {
         if(mb3[i[5][5]]){
             i[5][5] = 0;
         }
+        */
 //
 //        // q1 f1 m1
 //        // q2 f2 m2
