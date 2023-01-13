@@ -213,19 +213,6 @@ public class SudukuController implements Initializable {
 
 
     private void setValue(){
-
-        /*
-        2 4 8 5 9 7 3 1 6
-        5 4 8 9 3 6 1 7 2
-        5 8 3 9 1 4 6 7 2
-        7 1 8 6 9 3 5 2 4
-        7 5 1 4 9 8 6 2 3
-        3 5 1 6 8 9 2 7 4
-        6 5 2 8 9 7 3 4 1
-        6 3 2 9 8 1 4 5 7
-        3 4 8 5 2 6 9 7 1
-         */
-
         Random random = new Random();
 
         int[] j1 = {1,2,3,4,5,6,7,8,9}; int p1 = 9;
@@ -273,8 +260,6 @@ public class SudukuController implements Initializable {
         // 00 01 02
         // 10 11 12
         // 20 21 22
-
-
 
         //  part-4
         for(int a=3, d = 1, s=0; a<=5; a++){
@@ -545,23 +530,8 @@ public class SudukuController implements Initializable {
         tf_8_6.setText(String.valueOf(i[8][6]));
         tf_8_7.setText(String.valueOf(i[8][7]));
         tf_8_8.setText(String.valueOf(i[8][8]));
-
-
-//        for(int a=0; a<9; a++){
-//            for(int b=0; b<9; b++){
-//                System.out.println("tf_" + a + "_" + b + ".setText(String.valueOf(i["+ a +"][" + b +"]));");
-//            }
-//        }
-        //int n = 12;
-        //tf_0_0.setText(String.valueOf(n));
     }
     public void newGame(ActionEvent actionEvent) {
         setValue();
-//        for(int a=0; a<9; a++){
-//            for(int b=0; b<9; b++){
-//                System.out.print(a + b + " ");
-//            }
-//            System.out.println("");
-//        }
     }
 }
