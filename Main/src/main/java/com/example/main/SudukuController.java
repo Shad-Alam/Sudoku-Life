@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -424,48 +425,48 @@ public class SudukuController implements Initializable {
         // 46 47 48
         // 56 57 58
 
-        int sd3 = 1, sd4 = 2;
-        for(int a=0; a<=8; a++){
-            int sp = i[a][sd3];
-            i[a][sd3] = i[a][sd4];
-            i[a][sd4] = sp;
-        }
-
-        sd3 = 3; sd4 = 4;
-        for(int a=0; a<=8; a++){
-            int sp = i[a][sd3];
-            i[a][sd3] = i[a][sd4];
-            i[a][sd4] = sp;
-        }
-
-        sd3 = 7; sd4 = 8;
-        for(int a=0; a<=8; a++){
-            int sp = i[a][sd3];
-            i[a][sd3] = i[a][sd4];
-            i[a][sd4] = sp;
-        }
+         int sd3 = 1, sd4 = 2;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[a][sd3];
+//            i[a][sd3] = i[a][sd4];
+//            i[a][sd4] = sp;
+//        }
+//
+//        sd3 = 3; sd4 = 4;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[a][sd3];
+//            i[a][sd3] = i[a][sd4];
+//            i[a][sd4] = sp;
+//        }
+//
+//        sd3 = 7; sd4 = 8;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[a][sd3];
+//            i[a][sd3] = i[a][sd4];
+//            i[a][sd4] = sp;
+//        }
 
         //
-        sd3 = 1; sd4 = 2;
-        for(int a=0; a<=8; a++){
-            int sp = i[sd3][a];
-            i[sd3][a] = i[sd4][a];
-            i[sd4][a] = sp;
-        }
-
-        sd3 = 3; sd4 = 4;
-        for(int a=0; a<=8; a++){
-            int sp = i[sd3][a];
-            i[sd3][a] = i[sd4][a];
-            i[sd4][a] = sp;
-        }
-
-        sd3 = 7; sd4 = 8;
-        for(int a=0; a<=8; a++){
-            int sp = i[sd3][a];
-            i[sd3][a] = i[sd4][a];
-            i[sd4][a] = sp;
-        }
+//        sd3 = 1; sd4 = 2;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[sd3][a];
+//            i[sd3][a] = i[sd4][a];
+//            i[sd4][a] = sp;
+//        }
+//
+//        sd3 = 3; sd4 = 4;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[sd3][a];
+//            i[sd3][a] = i[sd4][a];
+//            i[sd4][a] = sp;
+//        }
+//
+//        sd3 = 7; sd4 = 8;
+//        for(int a=0; a<=8; a++){
+//            int sp = i[sd3][a];
+//            i[sd3][a] = i[sd4][a];
+//            i[sd4][a] = sp;
+//        }
 
         //private String level = LevelController.level;
         // ans store
@@ -474,6 +475,7 @@ public class SudukuController implements Initializable {
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
                 ans[a][b] = i[a][b];
+                /**
                 if(LevelController.level.equals("Easy")) {
                     if(random1.nextInt(3)<1) {
                         i[a][b] = 0; counter++;
@@ -514,7 +516,7 @@ public class SudukuController implements Initializable {
                             break;
                         }
                     }
-                }
+                }*/
             }
 
             if(port1){
@@ -629,8 +631,17 @@ public class SudukuController implements Initializable {
         }
 
         if(joy==81){
+            Alert s = new Alert(Alert.AlertType.CONFIRMATION);
+            s.setTitle("Winner");
+            s.setContentText("Congratulations...You win the game..");
+            s.show();
+
             System.out.println("Congratulations...You win the game..");
         }else{
+            Alert s = new Alert(Alert.AlertType.ERROR);
+            s.setTitle("Loser");
+            s.setContentText("You lost the game...");
+            s.show();
             System.out.println("You Lost the game");
         }
     }
