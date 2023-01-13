@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #220456;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main.LevelController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="548.0" prefWidth="420.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </padding>
+         <children>
+            <VBox alignment="CENTER" prefHeight="548.0" prefWidth="420.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="220.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#btn_easy" prefHeight="42.0" prefWidth="190.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white; -fx-border-color: transparent; -fx-background-radius: 30px;" text="Easy">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="220.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#btn_medium" prefHeight="42.0" prefWidth="190.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white; -fx-border-color: transparent; -fx-background-radius: 30px;" text="Medium">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="220.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#btn_hard" prefHeight="42.0" prefWidth="190.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white; -fx-border-color: transparent; -fx-background-radius: 30px;" text="Hard">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="220.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#btn_expert" prefHeight="42.0" prefWidth="190.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white; -fx-border-color: transparent; -fx-background-radius: 30px;" text="Expert">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="220.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#btn_evil" prefHeight="42.0" prefWidth="190.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white; -fx-border-color: transparent; -fx-background-radius: 30px;" text="Evil">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
