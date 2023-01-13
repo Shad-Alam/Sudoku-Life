@@ -211,11 +211,7 @@ public class SudukuController implements Initializable {
 //        }
     }
 
-    private void sw(int a, int b){
-        int sp = a;
-        a = b;
-        b = sp;
-    }
+
     private void setValue(){
 
         /*
