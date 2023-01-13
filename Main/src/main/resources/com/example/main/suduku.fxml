@@ -937,9 +937,9 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" onAction="#newGame" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white;" text="New Game">
+                  <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" onAction="#newGame" prefHeight="22.0" prefWidth="140.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white;" text="New Game">
                      <font>
-                        <Font size="23.0" />
+                        <Font size="15.0" />
                      </font>
                   </Button>
                </children>
