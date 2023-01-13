@@ -14,12 +14,14 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class LevelController implements Initializable {
+    public static String level;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+        level = null;
     }
 
     public void btn_easy(ActionEvent actionEvent) throws IOException {
+        level = "Easy";
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
@@ -30,6 +32,7 @@ public class LevelController implements Initializable {
     }
 
     public void btn_medium(ActionEvent actionEvent) throws IOException {
+        level = "Medium";
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
@@ -40,6 +43,7 @@ public class LevelController implements Initializable {
     }
 
     public void btn_hard(ActionEvent actionEvent) throws IOException {
+        level = "Hard";
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
@@ -50,6 +54,7 @@ public class LevelController implements Initializable {
     }
 
     public void btn_expert(ActionEvent actionEvent) throws IOException {
+        level = "Expert";
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
@@ -60,6 +65,7 @@ public class LevelController implements Initializable {
     }
 
     public void btn_evil(ActionEvent actionEvent) throws IOException {
+        level = "Evil";
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
