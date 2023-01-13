@@ -246,656 +246,205 @@ public class SudukuController implements Initializable {
             }
         }
 
-        // Flag - 1
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        p1 = 9;
-        // part-2
+        //  part-2
         for(int a=0; a<=2; a++){
+            int d = 0;
             for(int b=3; b<=5; b++){
-                int nn = random.nextInt(p1);
-                i[a][b] = j1[nn];
-                int sp = j1[nn];
-                j1[nn] = j1[p1-1];
-                j1[p1-1] = sp;
-                p1--;
-            }
-        }
-
-
-        // part-2 section-1
-        int[] s1 = {i[0][0], i[0][1], i[0][2]};
-        boolean[] sb1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb1[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            sb1[s1[a]] = true;
-        }
-
-        // part-2 section-2
-        int[] s2 = {i[1][0], i[1][1], i[1][2]};
-        boolean[] sb2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb2[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            sb2[s2[a]] = true;
-        }
-
-        // part-2 section-3
-        int[] s3 = {i[2][0], i[2][1], i[2][2]};
-        boolean[] sb3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb3[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            sb3[s3[a]] = true;
-        }
-
-        for(int a=0; a<=2; a++) {
-            if(a==0){
-                // part-2 section-1 fixing-1
-                for(int b=3; b<=5; b++){
-                    if(sb1[i[a][b]]){ // 1
-                        int ssd = i[a][b];
-                        boolean port9 = false;
-                        if(!sb2[ssd]) { // 2
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[1][c]]){
-                                    i[a][b] = i[1][c];
-                                    i[1][c] = ssd;
-                                    port9 = true;
-                                    break;
-                                }
-                            }
-                        }else{ // 3
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb1[i[2][c]]){
-                                    i[a][b] = i[2][c];
-                                    i[2][c] = ssd;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }else if(a==1){
-                // part-2 section-2 fixing-2
-                for(int b=3; b<=5; b++){
-                    if(sb2[i[a][b]]){ // 2
-                        int ssd = i[a][b];
-                        boolean port9 = false;
-                        if(!sb1[ssd]) { // 1
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb2[i[0][c]]){
-                                    i[a][b] = i[0][c];
-                                    i[0][c] = ssd;
-                                    port9 = true;
-                                    break;
-                                }
-                            }
-                        }else{ // 3
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb2[i[2][c]]){
-                                    i[a][b] = i[2][c];
-                                    i[2][c] = ssd;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }else{
-                for(int b=3; b<=5; b++){
-                    if(sb3[i[a][b]]){ // 3
-                        int ssd = i[a][b];
-                        boolean port9 = false;
-                        if(!sb1[ssd]) { // 1
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb3[i[0][c]]){
-                                    i[a][b] = i[0][c];
-                                    i[0][c] = ssd;
-                                    port9 = true;
-                                    break;
-                                }
-                            }
-                        }else{ // 2
-                            for (int c = 3; c <= 5; c++) {
-                                if(!sb3[i[1][c]]){
-                                    i[a][b] = i[1][c];
-                                    i[1][c] = ssd;
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                if(a==2){
+                    i[a][b] = i[0][d];
+                    d++;
+                }else {
+                    i[a][b] = i[a + 1][d];
+                    d++;
                 }
             }
         }
 
-        // Flag - 2
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        p1 = 9;
-        // part-3
+        //  part-3
         for(int a=0; a<=2; a++){
+            int d = 3;
             for(int b=6; b<=8; b++){
-                int nn = random.nextInt(p1);
-                i[a][b] = j1[nn];
-                int sp = j1[nn];
-                j1[nn] = j1[p1-1];
-                j1[p1-1] = sp;
-                p1--;
-            }
-        }
-
-        // part-3 section-1
-        int[] s4 = {i[0][0], i[0][1], i[0][2],i[0][3], i[0][4], i[0][5]};
-        boolean[] sb4 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb4[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            sb4[s4[a]] = true;
-        }
-
-        // part-3 section-2
-        int[] s5 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5]};
-        boolean[] sb5 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb5[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            sb5[s5[a]] = true;
-        }
-
-        // part-3 section-3
-        int[] s6 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5]};
-        boolean[] sb6 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            sb6[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            sb6[s6[a]] = true;
-        }
-
-        for(int a=0; a<=2; a++) {
-            if(a==0){
-                // part-3 section-1 fixing-1
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb4[c]){
-                            i[a][b] = c;
-                            sb4[c] = true;
-                            break;
-                        }
-                    }
-                }
-            }else if(a==1){
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb5[c]){
-                            i[a][b] = c;
-                            sb5[c] = true;
-                            break;
-                        }
-                    }
-                }
-            }else{
-                for(int b=6; b<=8; b++){
-                    for(int c=1; c<=9; c++){
-                        if(!sb6[c]){
-                            i[a][b] = c;
-                            sb6[c] = true;
-                            break;
-                        }
-                    }
+                if(a==2){
+                    i[a][b] = i[0][d];
+                    d++;
+                }else {
+                    i[a][b] = i[a + 1][d];
+                    d++;
                 }
             }
         }
 
-        // Flag - 4
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        p1 = 9;
-        // part-4
-        for(int a=3; a<=5; a++){
+        // 00 01 02
+        // 10 11 12
+        // 20 21 22
+
+
+
+        //  part-4
+        for(int a=3, d = 1, s=0; a<=5; a++){
+            int c = 3;
             for(int b=0; b<=2; b++){
-                int nn = random.nextInt(p1);
-                i[a][b] = j1[nn];
-                int sp = j1[nn];
-                j1[nn] = j1[p1-1];
-                j1[p1-1] = sp;
-                p1--;
-            }
-        }
-
-
-        // part-4 section-1
-        int[] r1 = {i[0][0], i[1][0], i[2][0]};
-        boolean[] rb1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            rb1[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            rb1[r1[a]] = true;
-        }
-
-        // part-4 section-2
-        int[] r2 = {i[0][1], i[1][1], i[2][1]};
-        boolean[] rb2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            rb2[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            rb2[r2[a]] = true;
-        }
-
-        // part-4 section-3
-        int[] r3 = {i[0][2], i[1][2], i[2][2]};
-        boolean[] rb3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            rb3[a] = false;
-        }
-
-        for(int a=0; a<3; a++){
-            rb3[r3[a]] = true;
-        }
-        // r1 r2 r3
-        // 30 31 32
-        // 40 41 42
-        // 50 51 52
-
-        // section-4 row-1
-        for(int a=3; a<=5; a++){
-            if(rb1[i[a][0]]){ // row 1
-                int ssd = i[a][0];
-                if(!rb2[i[a][0]]){ // row 2
-                    for(int b=3; b<=5; b++) {
-                        if(!rb1[i[b][1]]){
-                            i[a][0] = i[b][1];
-                            i[b][1] = ssd;
-                            break;
-                        }
-                    }
-                }else{ // row 3
-                    for(int b=3; b<=5; b++){
-                        if(!rb1[i[b][2]]){
-                            i[a][0] = i[b][2];
-                            i[b][2] = ssd;
-                            break;
-                        }
-                    }
+                if(a==5){
+                    d = 0;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
-            }
+            }d++;
+            s++;
         }
 
-        // section-4 row-2
-        for(int a=3; a<=5; a++){
-            if(rb2[i[a][1]]){ // row 2
-                int ssd = i[a][1];
-                if(!rb1[i[a][1]]){ // row 1
-                    for(int b=3; b<=5; b++) {
-                        if(!rb2[i[b][0]]){
-                            i[a][1] = i[b][0];
-                            i[b][0] = ssd;
-                            break;
-                        }
-                    }
-                }else{ // row 3
-                    for(int b=3; b<=5; b++){
-                        if(!rb2[i[b][2]]){
-                            i[a][1] = i[b][2];
-                            i[b][2] = ssd;
-                            break;
-                        }
-                    }
+        // 00 01 02 03 04
+        // 10 11 12
+        // 20 21 22
+
+        // 33 34 35
+        // 43 44 45
+        // 53 54 55
+
+        //  part-5
+        for(int a=3, d = 4, s=3; a<=5; a++){
+            int c = 3;
+            for(int b=0; b<=2; b++){
+                if(a==5){
+                    d = 3;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
-            }
+            }d++;
+            s++;
         }
 
-        // section-4 row-3
-        for(int a=3; a<=5; a++){
-            if(rb3[i[a][2]]){ // row 3
-                int ssd = i[a][2];
-                if(!rb1[i[a][2]]){ // row 1
-                    for(int b=3; b<=5; b++) {
-                        if(!rb3[i[b][0]]){
-                            i[a][2] = i[b][0];
-                            i[b][0] = ssd;
-                            break;
-                        }
-                    }
-                }else{ // row 2
-                    for(int b=3; b<=5; b++){
-                        if(!rb3[i[b][1]]){
-                            i[a][2] = i[b][1];
-                            i[b][1] = ssd;
-                            break;
-                        }
-                    }
+        // 00 01 02 03 04
+        // 10 11 12
+        // 20 21 22
+
+        // 36 37 38
+        // 46 47 48
+        // 56 57 58
+
+        //  part-6
+        for(int a=3, d = 7, s=6; a<=5; a++){
+            int c = 3;
+            for(int b=0; b<=2; b++){
+                if(a==5){
+                    d = 6;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
-            }
+            }d++;
+            s++;
         }
 
-        // Flag - 7
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        p1 = 9;
-        // part-7
+        // 33 34 35
+        // 43 44 45
+        // 53 54 55
 
+        // 63 64 65
+        // 73 74 75
+        // 83 84 85
 
-        // part-7 section-1 row-1
-        int[] d1 = {i[0][0], i[1][0], i[2][0],i[3][0], i[4][0], i[5][0]};
-        boolean[] db1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            db1[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            db1[d1[a]] = true;
-        }
-
-        for(int a=6; a<=8; a++){
-            for(int b=1; b<=9; b++){
-                if(!db1[b]){
-                    i[a][0] = b;
-                    db1[b] = true;
-                    break;
-                }
-            }
-        }
-
-        // part-7 section-1 row-2
-        int[] d2 = {i[0][1], i[1][1], i[2][1],i[3][1], i[4][1], i[5][1]};
-        boolean[] db2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            db2[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            db2[d2[a]] = true;
-        }
-
-        for(int a=6; a<=8; a++){
-            for(int b=1; b<=9; b++){
-                if(!db2[b]){
-                    i[a][1] = b;
-                    db2[b] = true;
-                    break;
-                }
-            }
-        }
-
-        // part-7 section-1 row-2
-        int[] d3 = {i[0][2], i[1][2], i[2][2],i[3][2], i[4][2], i[5][2]};
-        boolean[] db3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            db3[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            db3[d3[a]] = true;
-        }
-
-        for(int a=6; a<=8; a++){
-            for(int b=1; b<=9; b++){
-                if(!db3[b]){
-                    i[a][2] = b;
-                    db3[b] = true;
-                    break;
-                }
-            }
-        }
-
-        // Flag - 5
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------------------
-        p1 = 9;
-        // part-5
-        for(int a=3; a<=5; a++){
+        //  part-7
+        for(int a=6, d = 1, s=0; a<=8; a++){
+            int c = 6;
             for(int b=3; b<=5; b++){
-                int nn = random.nextInt(p1);
-                i[a][b] = j1[nn];
-                int sp = j1[nn];
-                j1[nn] = j1[p1-1];
-                j1[p1-1] = sp;
-                p1--;
-            }
-        }
-
-        /// Error-404
-
-        /*
-        // part-5 section-1
-        // q1[3][3]
-        int[] q1 = {i[0][3], i[1][3], i[2][3], i[3][0], i[3][1], i[3][2]};
-        boolean[] qb1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            qb1[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            qb1[q1[a]] = true;
-        }
-
-        // q2[4][3]
-        int[] q2 = {i[0][3], i[1][3], i[2][3], i[4][0], i[4][1], i[4][2]};
-        boolean[] qb2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            qb2[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            qb2[q2[a]] = true;
-        }
-
-        // q3[5][3]
-        int[] q3 = {i[0][3], i[1][3], i[2][3], i[5][0], i[5][1], i[5][2]};
-        boolean[] qb3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            qb3[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            qb3[q3[a]] = true;
-        }
-
-        // f1[3][4]
-        int[] f1 = {i[0][4], i[1][4], i[2][4], i[3][0], i[3][1], i[3][2]};
-        boolean[] fb1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            fb1[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            fb1[f1[a]] = true;
-        }
-
-        // f2[4][4]
-        int[] f2 = {i[0][4], i[1][4], i[2][4], i[4][0], i[4][1], i[4][2]};
-        boolean[] fb2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            fb2[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            fb2[f2[a]] = true;
-        }
-
-        // f3[3][4]
-        int[] f3 = {i[0][4], i[1][4], i[2][4], i[5][0], i[5][1], i[5][2]};
-        boolean[] fb3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            fb3[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            fb3[f3[a]] = true;
-        }
-
-        // m1[3][5]
-        int[] m1 = {i[0][5], i[1][5], i[2][5], i[3][0], i[3][1], i[3][2]};
-        boolean[] mb1 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            mb1[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            mb1[m1[a]] = true;
-        }
-
-        // m2[4][5]
-        int[] m2 = {i[0][5], i[1][5], i[2][5], i[4][0], i[4][1], i[4][2]};
-        boolean[] mb2 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            mb2[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            mb2[m2[a]] = true;
-        }
-
-        // m3[5][5]
-        int[] m3 = {i[0][5], i[1][5], i[2][5], i[5][0], i[5][1], i[5][2]};
-        boolean[] mb3 = new boolean[11];
-        for(int a=1; a<=9; a++){
-            mb3[a] = false;
-        }
-
-        for(int a=0; a<6; a++){
-            mb3[m3[a]] = true;
-        }
-
-
-        // row-1
-        if(qb1[i[3][3]]){
-            boolean js = false;
-            for(int a=3; a<=5; a++){
-                for(int b=3; b<=5; b++){
-                    if(!qb1[i[a][b]]){
-                        int sp = i[3][3];
-                        i[3][3] = i[a][b];
-                        i[a][b] = sp;
-                        js = true;
-                        break;
-                    }
+                if(a==8){
+                    d = 3;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
+            }d++;
+            s++;
+        }
 
-                if(js){
-                    break;
+        // 33 34 35
+        // 43 44 45
+        // 53 54 55
+
+        // 63 64 65
+        // 73 74 75
+        // 83 84 85
+
+        //  part-8
+        for(int a=6, d = 4, s=3; a<=8; a++){
+            int c = 6;
+            for(int b=3; b<=5; b++){
+                if(a==8){
+                    d = 3;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
-            }
+            }d++;
+            s++;
         }
 
-        if(qb2[i[4][3]]){
-            boolean js = false;
-            for(int a=3; a<=5; a++){
-                for(int b=3; b<=5; b++){
-                    if(!qb2[i[a][b]] && a!=3 && b!=3){
-                        int sp = i[4][3];
-                        i[4][3] = i[a][b];
-                        i[a][b] = sp;
-                        js = true;
-                        break;
-                    }
+        // 36 37 38
+        // 46 47 48
+        // 56 57 58
+
+        // 66 67 68
+        // 76 77 78
+        // 86 87 88
+
+        //  part-9
+        for(int a=6, d = 7, s=6; a<=8; a++){
+            int c = 6;
+            for(int b=3; b<=5; b++){
+                if(a==8){
+                    d = 6;
+                    i[c][s] = i[b][d];
+                    c++;
+                }else {
+                    i[c][s] = i[b][d];
+                    c++;
                 }
-
-                if(js){
-                    break;
-                }
-            }
+            }d++;
+            s++;
         }
 
-        if(qb3[i[5][3]]){
-            boolean js = false;
-            for(int a=3; a<=5; a++){
-                for(int b=3; b<=5; b++){
-                    if((a==3 && b==3) || (a==4 && b==3)){
-                        continue;
-                    }
-                    if(!qb3[i[a][b]]){
-                        int sp = i[5][3];
-                        i[5][3] = i[a][b];
-                        i[a][b] = sp;
-                        js = true;
-                        break;
-                    }
-                }
+        // 00 01 02 03 04
+        // 10 11 12
+        // 20 21 22
 
-                if(js){
-                    break;
-                }
-            }
+        // 36 37 38
+        // 46 47 48
+        // 56 57 58
+
+        int sd3 = 1, sd4 = 2;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
         }
 
-        // row-2
-
-        if(fb1[i[3][4]]){
-            i[3][4] = 0;
+        sd3 = 3; sd4 = 4;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
         }
 
-        if(fb2[i[4][4]]){
-            i[4][4] = 0;
+        sd3 = 7; sd4 = 8;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
         }
 
-        if(fb3[i[5][4]]){
-            i[5][4] = 0;
-        }
-
-        // row-3
-
-        if(mb1[i[3][5]]){
-            i[3][5] = 0;
-        }
-
-        if(mb2[i[4][5]]){
-            i[4][5] = 0;
-        }
-
-        if(mb3[i[5][5]]){
-            i[5][5] = 0;
-        }
-        */
-//
-//        // q1 f1 m1
-//        // q2 f2 m2
-//        // q3 f3 m3
-//
-//        for(int a=0; a<ps; a++){
-//            System.out.println(zero[a]);
-//        }
-
-
-        /*
-        int[] r2 = {i[1][0], i[1][1], i[1][2], i[1][3], i[1][4], i[1][5], i[1][6]};
-        int[] r3 = {i[2][0], i[2][1], i[2][2], i[2][3], i[2][4], i[2][5], i[2][6]};
-
-         */
 
         tf_0_0.setText(String.valueOf(i[0][0]));
         tf_0_1.setText(String.valueOf(i[0][1]));
