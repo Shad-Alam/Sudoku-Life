@@ -942,6 +942,14 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <Button layoutX="242.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn_result" prefHeight="22.0" prefWidth="140.0" style="-fx-background-color: #4B19A2; -fx-text-fill: white;" text="Result">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
