@@ -445,6 +445,28 @@ public class SudukuController implements Initializable {
             i[a][sd4] = sp;
         }
 
+        //
+        sd3 = 1; sd4 = 2;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
+
+        sd3 = 3; sd4 = 4;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
+
+        sd3 = 7; sd4 = 8;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
+
 
         tf_0_0.setText(String.valueOf(i[0][0]));
         tf_0_1.setText(String.valueOf(i[0][1]));
