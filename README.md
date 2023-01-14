@@ -1,4 +1,4 @@
-#Sudoku game
+# Sudoku game
 
 ## Project    : Sudoku-Life
 ## Contributor: Shad-Alam 
