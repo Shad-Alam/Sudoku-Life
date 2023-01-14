@@ -5,7 +5,7 @@
 
 :writing_hand: **Description:** <br/>
 
-- Sudoku is very popular game. I was trying to generate sudoku puzzle as hard as possible. There are are 5 different level(Easy, Medium, Hard, Expert and Evil). Level wise it looks much much harder. <br/>
+- Sudoku is very popular game. In this project, I was trying to generate sudoku puzzle with five different levels. <br/>
 
 ## Project presentation: https://youtu.be/SUhO2Exu4DU
 
