@@ -6,7 +6,7 @@
 
 :writing_hand: **Description:** <br/>
 
-- Sudoku is very popular game. In this project, I was trying to generate sudoku puzzle with five different levels. <br/>
+- Sudoku is very popular game. In this project, I was trying to generate sudoku puzzle with five different levels. <br/> <br/>
 
 ## Project presentation: https://youtu.be/SUhO2Exu4DU
 
