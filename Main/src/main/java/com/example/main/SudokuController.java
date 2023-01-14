@@ -123,7 +123,6 @@ public class SudokuController implements Initializable {
                 sm = (sm * 10) + Character.getNumericValue(s.charAt(a));
             }
         }
-        System.out.println(sm);
         return sm;
     }
 
@@ -572,11 +571,9 @@ public class SudokuController implements Initializable {
             messageResult = "Congratulations!!!! You Win";
             message(actionEvent);
 
-            System.out.println("Congratulations...You win the game..");
         }else{
             messageResult = "You Lost. Try again....";
             message(actionEvent);
-            System.out.println("You Lost the game");
         }
     }
 }
