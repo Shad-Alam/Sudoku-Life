@@ -114,13 +114,6 @@ public class SudukuController implements Initializable {
         }
         counter = 0;
         setValue();
-
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.print(ans[a][b]+" ");
-            }
-            System.out.println();
-        }
     }
 
     void reset(){
@@ -143,8 +136,6 @@ public class SudukuController implements Initializable {
     }
     // Error Here
     private void getUserInput(){
-        //reset();
-
         i[0][0] = emptyChecker(tf_0_0.getText());
         i[0][1] = emptyChecker(tf_0_1.getText());
         i[0][2] = emptyChecker(tf_0_2.getText());
@@ -358,7 +349,7 @@ public class SudukuController implements Initializable {
             int c = 6;
             for(int b=3; b<=5; b++){
                 if(a==8){
-                    d = 3;
+                    d = 0;
                     i[c][s] = i[b][d];
                     c++;
                 }else {
@@ -425,57 +416,71 @@ public class SudukuController implements Initializable {
         // 46 47 48
         // 56 57 58
 
-         int sd3 = 1, sd4 = 2;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[a][sd3];
-//            i[a][sd3] = i[a][sd4];
-//            i[a][sd4] = sp;
-//        }
-//
-//        sd3 = 3; sd4 = 4;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[a][sd3];
-//            i[a][sd3] = i[a][sd4];
-//            i[a][sd4] = sp;
-//        }
-//
-//        sd3 = 7; sd4 = 8;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[a][sd3];
-//            i[a][sd3] = i[a][sd4];
-//            i[a][sd4] = sp;
-//        }
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                System.out.print(i[a][b]+" ");
+            }
+            System.out.println();
+        }
 
-        //
-//        sd3 = 1; sd4 = 2;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[sd3][a];
-//            i[sd3][a] = i[sd4][a];
-//            i[sd4][a] = sp;
-//        }
-//
-//        sd3 = 3; sd4 = 4;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[sd3][a];
-//            i[sd3][a] = i[sd4][a];
-//            i[sd4][a] = sp;
-//        }
-//
-//        sd3 = 7; sd4 = 8;
-//        for(int a=0; a<=8; a++){
-//            int sp = i[sd3][a];
-//            i[sd3][a] = i[sd4][a];
-//            i[sd4][a] = sp;
-//        }
+        int sd3 = 1, sd4 = 2;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
 
-        //private String level = LevelController.level;
+        sd3 = 3; sd4 = 4;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
+
+        sd3 = 6; sd4 = 7;
+        for(int a=0; a<=8; a++){
+            int sp = i[sd3][a];
+            i[sd3][a] = i[sd4][a];
+            i[sd4][a] = sp;
+        }
+
+        System.out.println("----------------------------------------");
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                System.out.print(i[a][b]+" ");
+            }
+            System.out.println();
+        }
+
+        // 2nd ssd
+        sd3 = 1; sd4 = 2;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
+        }
+
+        sd3 = 3; sd4 = 4;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
+        }
+
+        sd3 = 6; sd4 = 7;
+        for(int a=0; a<=8; a++){
+            int sp = i[a][sd3];
+            i[a][sd3] = i[a][sd4];
+            i[a][sd4] = sp;
+        }
+
         // ans store
         Random random1 = new Random();
         boolean port1 = false;
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
                 ans[a][b] = i[a][b];
-                /**
+
                 if(LevelController.level.equals("Easy")) {
                     if(random1.nextInt(3)<1) {
                         i[a][b] = 0; counter++;
@@ -516,7 +521,7 @@ public class SudukuController implements Initializable {
                             break;
                         }
                     }
-                }*/
+                }
             }
 
             if(port1){
@@ -607,8 +612,6 @@ public class SudukuController implements Initializable {
         tf_8_8.setText(checkZero(i[8][8]));
     }
     public void newGame(ActionEvent actionEvent) throws IOException {
-        //System.out.println(LevelController.level);
-
         Parent parent =
                 FXMLLoader.load(getClass().getResource("level.fxml"));
         Scene scene = new Scene(parent);
