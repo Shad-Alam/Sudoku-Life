@@ -11,8 +11,8 @@
 
 <br/> 
 
-![ezcv logo](https://github.com/Shad-Alam/)
+![ezcv logo](https://github.com/Shad-Alam/Sudoku-Life/Main/screenshots/01.png)
 
 <br/>
 
-![ezcv logo](https://github.com/Shad-Alam/)
+![ezcv logo](https://github.com/Shad-Alam/Sudoku-Life/Main/screenshots/02.png)
