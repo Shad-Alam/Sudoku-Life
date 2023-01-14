@@ -134,7 +134,7 @@ public class SudukuController implements Initializable {
         System.out.println(sm);
         return sm;
     }
-    // Error Here
+
     private void getUserInput(){
         i[0][0] = emptyChecker(tf_0_0.getText());
         i[0][1] = emptyChecker(tf_0_1.getText());
@@ -219,7 +219,6 @@ public class SudukuController implements Initializable {
         i[8][8] = emptyChecker(tf_8_8.getText());
     }
 
-
     private String checkZero(int n){
         return n==0 ? " " : String.valueOf(n);
     }
@@ -268,10 +267,6 @@ public class SudukuController implements Initializable {
             }
         }
 
-        // 00 01 02
-        // 10 11 12
-        // 20 21 22
-
         //  part-4
         for(int a=3, d = 1, s=0; a<=5; a++){
             int c = 3;
@@ -287,14 +282,6 @@ public class SudukuController implements Initializable {
             }d++;
             s++;
         }
-
-        // 00 01 02 03 04
-        // 10 11 12
-        // 20 21 22
-
-        // 33 34 35
-        // 43 44 45
-        // 53 54 55
 
         //  part-5
         for(int a=3, d = 4, s=3; a<=5; a++){
@@ -312,14 +299,6 @@ public class SudukuController implements Initializable {
             s++;
         }
 
-        // 00 01 02 03 04
-        // 10 11 12
-        // 20 21 22
-
-        // 36 37 38
-        // 46 47 48
-        // 56 57 58
-
         //  part-6
         for(int a=3, d = 7, s=6; a<=5; a++){
             int c = 3;
@@ -335,14 +314,6 @@ public class SudukuController implements Initializable {
             }d++;
             s++;
         }
-
-        // 33 34 35
-        // 43 44 45
-        // 53 54 55
-
-        // 63 64 65
-        // 73 74 75
-        // 83 84 85
 
         //  part-7
         for(int a=6, d = 1, s=0; a<=8; a++){
@@ -360,14 +331,6 @@ public class SudukuController implements Initializable {
             s++;
         }
 
-        // 33 34 35
-        // 43 44 45
-        // 53 54 55
-
-        // 63 64 65
-        // 73 74 75
-        // 83 84 85
-
         //  part-8
         for(int a=6, d = 4, s=3; a<=8; a++){
             int c = 6;
@@ -383,14 +346,6 @@ public class SudukuController implements Initializable {
             }d++;
             s++;
         }
-
-        // 36 37 38
-        // 46 47 48
-        // 56 57 58
-
-        // 66 67 68
-        // 76 77 78
-        // 86 87 88
 
         //  part-9
         for(int a=6, d = 7, s=6; a<=8; a++){
@@ -408,14 +363,6 @@ public class SudukuController implements Initializable {
             s++;
         }
 
-        // 00 01 02 03 04
-        // 10 11 12
-        // 20 21 22
-
-        // 36 37 38
-        // 46 47 48
-        // 56 57 58
-
         for(int a=0; a<9; a++){
             for(int b=0; b<9; b++){
                 System.out.print(i[a][b]+" ");
@@ -423,6 +370,7 @@ public class SudukuController implements Initializable {
             System.out.println();
         }
 
+        // 1st ssd
         int sd3 = 1, sd4 = 2;
         for(int a=0; a<=8; a++){
             int sp = i[sd3][a];
@@ -442,14 +390,6 @@ public class SudukuController implements Initializable {
             int sp = i[sd3][a];
             i[sd3][a] = i[sd4][a];
             i[sd4][a] = sp;
-        }
-
-        System.out.println("----------------------------------------");
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.print(i[a][b]+" ");
-            }
-            System.out.println();
         }
 
         // 2nd ssd
@@ -474,6 +414,14 @@ public class SudukuController implements Initializable {
             i[a][sd4] = sp;
         }
 
+        System.out.println("----------------------------------------");
+        for(int a=0; a<9; a++){
+            for(int b=0; b<9; b++){
+                System.out.print(i[a][b]+" ");
+            }
+            System.out.println();
+        }
+
         // ans store
         Random random1 = new Random();
         boolean port1 = false;
@@ -484,7 +432,7 @@ public class SudukuController implements Initializable {
                 if(LevelController.level.equals("Easy")) {
                     if(random1.nextInt(3)<1) {
                         i[a][b] = 0; counter++;
-                        if(counter>36){
+                        if(counter>54){
                             port1 = true;
                             break;
                         }
@@ -492,7 +440,7 @@ public class SudukuController implements Initializable {
                 }else if(LevelController.level.equals("Medium")) {
                     if(random1.nextInt(3)<=1) {
                         i[a][b] = 0; counter++;
-                        if(counter>45){
+                        if(counter>54){
                             port1 = true;
                             break;
                         }
@@ -506,17 +454,17 @@ public class SudukuController implements Initializable {
                         }
                     }
                 }else if(LevelController.level.equals("Expert")) {
-                    if(random1.nextInt(6)<=2) {
+                    if(random1.nextInt(6)<=3) {
                         i[a][b] = 0; counter++;
-                        if(counter>60){
+                        if(counter>70){
                             port1 = true;
                             break;
                         }
                     }
                 }else if(LevelController.level.equals("Evil")) {
-                    if(random1.nextInt(6)<=3) {
+                    if(random1.nextInt(7)<=4) {
                         i[a][b] = 0; counter++;
-                        if(counter>65){
+                        if(counter>70){
                             port1 = true;
                             break;
                         }
