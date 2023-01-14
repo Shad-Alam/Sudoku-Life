@@ -1,5 +1,5 @@
 
-## Project    : Sudoku Life
+## Project    : Sudoku-Life
 ## Contributor: Shad-Alam 
 
 <br/>
