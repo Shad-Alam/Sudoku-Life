@@ -116,14 +116,6 @@ public class SudukuController implements Initializable {
         setValue();
     }
 
-    void reset(){
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                i[a][b] = 0;
-            }
-        }
-    }
-
     private int emptyChecker(String s){
         int sm = 0;
         for(int a=0; a<s.length(); a++){
@@ -363,13 +355,6 @@ public class SudukuController implements Initializable {
             s++;
         }
 
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.print(i[a][b]+" ");
-            }
-            System.out.println();
-        }
-
         // 1st ssd
         int sd3 = 1, sd4 = 2;
         for(int a=0; a<=8; a++){
@@ -412,14 +397,6 @@ public class SudukuController implements Initializable {
             int sp = i[a][sd3];
             i[a][sd3] = i[a][sd4];
             i[a][sd4] = sp;
-        }
-
-        System.out.println("----------------------------------------");
-        for(int a=0; a<9; a++){
-            for(int b=0; b<9; b++){
-                System.out.print(i[a][b]+" ");
-            }
-            System.out.println();
         }
 
         // ans store
