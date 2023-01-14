@@ -22,7 +22,7 @@ public class LevelController implements Initializable {
 
     private void getSource(ActionEvent actionEvent) throws IOException {
         Parent parent =
-                FXMLLoader.load(getClass().getResource("suduku.fxml"));
+                FXMLLoader.load(getClass().getResource("sudoku.fxml"));
         Scene scene = new Scene(parent);
         Stage stage =
                 (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

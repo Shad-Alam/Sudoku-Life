@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,7 +14,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class SudukuController implements Initializable {
+public class SudokuController implements Initializable {
     public TextField tf_3_7;
     public TextField tf_4_8;
     public TextField tf_4_7;
@@ -100,8 +99,8 @@ public class SudukuController implements Initializable {
 
     private int[][] i = new int[10][10];
     private int[][] ans = new int[10][10];
-    boolean[][] visit = new boolean[10][10];
 
+    public static String messageResult;
     private int counter;
 
     @Override
@@ -113,6 +112,7 @@ public class SudukuController implements Initializable {
             }
         }
         counter = 0;
+        messageResult = null;
         setValue();
     }
 
@@ -546,7 +546,17 @@ public class SudukuController implements Initializable {
         stage.show();
     }
 
-    public void btn_result(ActionEvent actionEvent) {
+    private void message(ActionEvent actionEvent) throws IOException {
+        Parent parent =
+                FXMLLoader.load(getClass().getResource("message.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage =
+                (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void btn_result(ActionEvent actionEvent) throws IOException {
         getUserInput();
 
         int joy = 0;
@@ -559,17 +569,13 @@ public class SudukuController implements Initializable {
         }
 
         if(joy==81){
-            Alert s = new Alert(Alert.AlertType.CONFIRMATION);
-            s.setTitle("Winner");
-            s.setContentText("Congratulations...You win the game..");
-            s.show();
+            messageResult = "Congratulations!!!! You Win";
+            message(actionEvent);
 
             System.out.println("Congratulations...You win the game..");
         }else{
-            Alert s = new Alert(Alert.AlertType.ERROR);
-            s.setTitle("Loser");
-            s.setContentText("You lost the game...");
-            s.show();
+            messageResult = "You Lost. Try again....";
+            message(actionEvent);
             System.out.println("You Lost the game");
         }
     }
