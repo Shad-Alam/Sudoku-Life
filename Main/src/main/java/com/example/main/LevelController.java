@@ -20,8 +20,7 @@ public class LevelController implements Initializable {
         level = null;
     }
 
-    public void btn_easy(ActionEvent actionEvent) throws IOException {
-        level = "Easy";
+    private void getSource(ActionEvent actionEvent) throws IOException {
         Parent parent =
                 FXMLLoader.load(getClass().getResource("suduku.fxml"));
         Scene scene = new Scene(parent);
@@ -29,49 +28,29 @@ public class LevelController implements Initializable {
                 (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+    public void btn_easy(ActionEvent actionEvent) throws IOException {
+        level = "Easy";
+        getSource(actionEvent);
     }
 
     public void btn_medium(ActionEvent actionEvent) throws IOException {
         level = "Medium";
-        Parent parent =
-                FXMLLoader.load(getClass().getResource("suduku.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage =
-                (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        getSource(actionEvent);
     }
 
     public void btn_hard(ActionEvent actionEvent) throws IOException {
         level = "Hard";
-        Parent parent =
-                FXMLLoader.load(getClass().getResource("suduku.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage =
-                (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        getSource(actionEvent);
     }
 
     public void btn_expert(ActionEvent actionEvent) throws IOException {
         level = "Expert";
-        Parent parent =
-                FXMLLoader.load(getClass().getResource("suduku.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage =
-                (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        getSource(actionEvent);
     }
 
     public void btn_evil(ActionEvent actionEvent) throws IOException {
         level = "Evil";
-        Parent parent =
-                FXMLLoader.load(getClass().getResource("suduku.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage =
-                (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        getSource(actionEvent);
     }
 }
