@@ -19,3 +19,13 @@
 ![ezcv logo](https://github.com/Shad-Alam/Sudoku-Life/blob/main/Main/screenshot/02.png)
 
 * Released: January 15, 2023
+
+🚀 How to run this project : 
+
+➡️ Download & Open inside your IDE 
+
+➡️ Follow this Path 👇 
+
+➡️ Sudoku-Life-main -> Main -> src -> main -> java -> com.example.main -> App
+
+➡️ Run App.java 
